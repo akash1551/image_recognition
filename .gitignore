@@ -1,0 +1,6 @@
+db.sqlite3
+migrations/
+project_db/
+*.pyc
+Media/
+
