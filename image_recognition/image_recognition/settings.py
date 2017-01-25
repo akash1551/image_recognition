@@ -25,7 +25,7 @@ SECRET_KEY = 'bl&kqir)(dl&v6bm&)9o*k38wq#+!tq97!)#n5*qoil%p%cp=h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'image_recognition',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'image_recognition.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR, 'html_templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'image_recognition.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, '../project_db/db.sqlite3'),
     }
 }
 
@@ -118,4 +119,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR,"deploy_to_server")
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
+MEDIA_ROOT = os.path.join(BASE_DIR,"Media")
+MEDIA_URL = "/Media/"
