@@ -8,4 +8,7 @@ from helper_functions import upload_image
 
 
 class Image(models.Model):
-    image = models.FileField(upload_to=upload_image, null=True, blank=True)
+    image = models.FileField(upload_to=upload_image)
+
+    def __unicode__(self):
+        return str(self.image)
